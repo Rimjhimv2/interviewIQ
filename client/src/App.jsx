@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
@@ -19,6 +18,13 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // If we have a token saved from a previous session, attach it to
+    // every axios request before we try to fetch the current user.
+    const savedToken = localStorage.getItem("token");
+    if (savedToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${savedToken}`;
+    }
+
     const getUser = async () => {
       try {
         const result = await axios.get(
@@ -31,6 +37,9 @@ function App() {
         dispatch(setUserData(result.data));
       } catch (error) {
         console.log(error);
+        // Token is invalid/expired — clear it so we don't keep sending a bad one.
+        localStorage.removeItem("token");
+        delete axios.defaults.headers.common["Authorization"];
         dispatch(setUserData(null));
       }
     };
@@ -51,4 +60,3 @@ function App() {
 }
 
 export default App;
-
