@@ -92,8 +92,7 @@ Beyond solving this problem, this project gave me hands-on experience in buildin
 ---
 
 ## 🏗️ System Architecture
-
-```text
+```
                     ┌─────────────────────┐
                     │      React UI       │
                     │   Vite + Tailwind   │
@@ -119,7 +118,10 @@ Beyond solving this problem, this project gave me hands-on experience in buildin
        │    Razorpay     │
 
 
+```
+
 📦 Installation
+
 Prerequisites
 
 Make sure you have the following installed:
@@ -181,10 +183,14 @@ bash
 cd client
 npm run dev
 7. Open the Application
+
 Frontend → http://localhost:5173
 Backend → http://localhost:8000
+
+
 📁 Project Structure
-text
+
+
 InterviewIQ.AI/
 ├── client/
 │   ├── src/
@@ -199,6 +205,8 @@ InterviewIQ.AI/
     ├── services/
     ├── config/
     └── .env
+
+    
 🌐 Deployment
 
 The application is deployed using:
@@ -206,13 +214,15 @@ The application is deployed using:
 Frontend: Vercel
 Backend: Render
 Database: MongoDB Atlas
+
+
 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome. Feel free to fork the repository and submit a pull request.
 
 🔗 Connect With Me
 
-Rimjhim Verma 💻 GitHub: https://github.com/Rimjhimv2
-       │    Payments     │
-       └─────────────────┘
+Rimjhim Verma 
+GitHub: https://github.com/Rimjhimv2
+       
 
