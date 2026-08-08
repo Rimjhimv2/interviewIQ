@@ -13,13 +13,18 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
+// Render proxy ke liye
+app.set("trust proxy", 1);
+
+app.use(
+  cors({
     origin: [
-        "http://localhost:5173",
-        "https://interview-iq-frontend-roan.vercel.app"
+      "http://localhost:5173",
+      "https://interview-iq-frontend-roan.vercel.app",
     ],
-    credentials: true
-}));
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
@@ -32,6 +37,6 @@ app.use("/api/payment", paymentRouter);
 const PORT = process.env.PORT || 6000;
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    connectDb();
+  console.log(`Server running on port ${PORT}`);
+  connectDb();
 });
