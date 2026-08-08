@@ -31,7 +31,11 @@ export const createOrder = async (req,res) => {
 
     
     } catch (error) {
-         return res.status(500).json({message:`failed to create Razorpay order ${error}`})
+         // Razorpay errors are objects, not plain Error instances — log the
+         // full thing so the real reason shows up (bad keys, min amount, etc).
+         console.log("Razorpay createOrder error:", error)
+         const reason = error?.error?.description || error?.message || JSON.stringify(error)
+         return res.status(500).json({message:`failed to create Razorpay order: ${reason}`})
     }
 }
 
