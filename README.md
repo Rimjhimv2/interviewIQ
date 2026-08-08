@@ -117,67 +117,74 @@ Beyond solving this problem, this project gave me hands-on experience in buildin
                 ▼
        ┌─────────────────┐
        │    Razorpay     │
-       │    Payments     │
-       └─────────────────┘
 
 
 📦 Installation
-
 Prerequisites
+
 Make sure you have the following installed:
+
 Node.js (v18 or higher recommended)
 npm
 MongoDB or a MongoDB Atlas cluster
 Git
 1. Clone the Repository
+bash
 git clone https://github.com/Rimjhimv2/InterviewIQ.AI.git
-
 cd InterviewIQ.AI
-
 2. Install Server Dependencies
+bash
 cd server
 npm install
-
 3. Install Client Dependencies
+bash
 cd ../client
 npm install
-
 4. Configure Environment Variables
+
 Create a .env file inside the server folder:
 
+env
 PORT=8000
 MONGODB_URL=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 OPENROUTER_API_KEY=your_openrouter_api_key
 RAZORPAY_KEY_ID=your_razorpay_key_id
 RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+
 Create a .env file inside the client folder:
+
+env
 VITE_FIREBASE_APIKEY=your_firebase_api_key
 VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
 
 🔑 Never commit your .env files or expose API keys and secret credentials publicly.
 
 5. Get API Keys
-
 MongoDB Atlas: https://cloud.mongodb.com
 OpenRouter: https://openrouter.ai
 Razorpay: https://dashboard.razorpay.com
 Firebase: https://console.firebase.google.com
-
 6. Run the Application
+
 Open two terminals.
+
 Terminal 1 — Backend
+
+bash
 cd server
 npm run dev
+
 Terminal 2 — Frontend
+
+bash
 cd client
 npm run dev
-
 7. Open the Application
 Frontend → http://localhost:5173
-Backend  → http://localhost:8000
+Backend → http://localhost:8000
 📁 Project Structure
-
+text
 InterviewIQ.AI/
 ├── client/
 │   ├── src/
@@ -192,17 +199,20 @@ InterviewIQ.AI/
     ├── services/
     ├── config/
     └── .env
-
 🌐 Deployment
+
 The application is deployed using:
+
 Frontend: Vercel
 Backend: Render
 Database: MongoDB Atlas
-
 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome.
-Feel free to fork the repository and submit a pull request.
+Contributions, issues, and feature requests are welcome. Feel free to fork the repository and submit a pull request.
+
 🔗 Connect With Me
-Rimjhim Verma
-💻 GitHub: https://github.com/Rimjhimv2
+
+Rimjhim Verma 💻 GitHub: https://github.com/Rimjhimv2
+       │    Payments     │
+       └─────────────────┘
+
