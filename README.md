@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-- **Live Application:** interview-iq-frontend-roan.vercel.ap
+- **Live Application:** https://interview-iq-frontend-roan.vercel.app
 - **GitHub Repository:** https://github.com/Rimjhimv2/InterviewIQ.AI
 
 ---
