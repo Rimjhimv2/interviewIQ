@@ -10,7 +10,7 @@ import axios from 'axios';
 import { ServerUrl } from '../App';
 import { setUserData } from '../redux/userSlice';
 import AuthModel from './AuthModel';
-function Navbar() {
+function Navbar({ dark = false }) {
     const {userData} = useSelector((state)=>state.user)
     const [showCreditPopup,setShowCreditPopup] = useState(false)
     const [showUserPopup,setShowUserPopup] = useState(false)
@@ -33,18 +33,22 @@ function Navbar() {
         }
     }
   return (
-    <div className='bg-[#f3f3f3] flex justify-center px-4 pt-6'>
+    <div className={`flex justify-center px-4 pt-6 ${dark ? '' : 'bg-[#f3f3f3]'}`}>
         <motion.div 
         initial={{opacity:0 , y:-40}}
         animate={{opacity:1 , y:0}}
         transition={{duration: 0.3}}
-        className='w-full max-w-6xl bg-white rounded-[24px] shadow-sm border border-gray-200 px-8 py-4 flex justify-between items-center relative'>
+        className={`w-full max-w-6xl rounded-[24px] px-8 py-4 flex justify-between items-center relative ${
+          dark
+            ? 'bg-white/5 border border-white/10 backdrop-blur-sm'
+            : 'bg-white shadow-sm border border-gray-200'
+        }`}>
             <div className='flex items-center gap-3 cursor-pointer'>
-                <div className='bg-black text-white p-2 rounded-lg'>
+                <div className={`p-2 rounded-lg ${dark ? 'bg-blue-600 text-white' : 'bg-black text-white'}`}>
                     <BsRobot size={18}/>
 
                 </div>
-                <h1 className='font-semibold hidden md:block text-lg'>InterviewIQ.AI</h1>
+                <h1 className={`font-semibold hidden md:block text-lg ${dark ? 'text-white' : 'text-black'}`}>InterviewIQ.AI</h1>
             </div>
 
             <div className='flex items-center gap-6  relative'>
@@ -56,7 +60,9 @@ function Navbar() {
                         }
                         setShowCreditPopup(!showCreditPopup);
                         setShowUserPopup(false)
-                    }} className='flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-md hover:bg-gray-200 transition'>
+                    }} className={`flex items-center gap-2 px-4 py-2 rounded-full text-md transition ${
+                      dark ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-gray-100 hover:bg-gray-200'
+                    }`}>
                         <BsCoin size={20}/>
                         {userData?.credits || 0}
                     </button>
@@ -79,7 +85,9 @@ function Navbar() {
                         }
                         setShowUserPopup(!showUserPopup);
                         setShowCreditPopup(false)
-                    }} className='w-9 h-9 bg-black text-white rounded-full flex items-center justify-center font-semibold'>
+                    }} className={`w-9 h-9 rounded-full flex items-center justify-center font-semibold ${
+                      dark ? 'bg-blue-600 text-white' : 'bg-black text-white'
+                    }`}>
                         {userData ? userData?.name.slice(0,1).toUpperCase() : <FaUserAstronaut size={16}/>}
                         
                     </button>
